@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: #241f1b;
+  background: #f5f0e8;
+  line-height: 1.6;
+}
+
+.hero {
+  min-height: 85vh;
+  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    url("images/hero.jpg") center/cover;
+  display: flex;
+  align-items: end;
+  padding: 4rem 8%;
+  color: white;
+}
+
+.hero-text {
+  max-width: 760px;
+}
+
+.chapter {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .85rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: .95;
+  margin: 0;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 4rem 8%;
+}
+
+.intro,
+.sources {
+  max-width: 760px;
+  margin-bottom: 5rem;
+}
+
+.exhibit-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin: 5rem 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+figcaption {
+  font-size: .9rem;
+  color: #62584f;
+  margin-top: .6rem;
+}
+
+.quote {
+  border-left: 5px solid #8b5e34;
+  padding: 1rem 2rem;
+  margin: 5rem 0;
+  background: #fffaf1;
+}
+
+blockquote {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+@media (max-width: 750px) {
+  .exhibit-section,
+  .exhibit-section.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 3rem 6%;
+  }
+}
