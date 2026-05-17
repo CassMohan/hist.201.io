@@ -131,7 +131,7 @@ a {
   min-height: calc(100vh - 68px);
   background:
     linear-gradient(rgba(35,31,32,.1), rgba(35,31,32,.35)),
-    url("images/hero.jpg") center / cover,
+    url("images/hero-map.webp") center / cover,
     linear-gradient(135deg, #6f6048, #1d2926);
 }
 
@@ -179,6 +179,13 @@ h2 {
 .text-block p,
 .interactive-panel p {
   font-size: 1.1rem;
+}
+
+.source-note {
+  margin-top: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .88rem;
+  color: #665a50;
 }
 
 .section-banner {
@@ -261,6 +268,12 @@ blockquote {
   background: var(--red);
 }
 
+.interactive-panel .eyebrow,
+.interactive-panel h2,
+.interactive-panel p {
+  color: var(--white);
+}
+
 .controls {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -295,6 +308,23 @@ blockquote {
 
 .sources-panel li + li {
   margin-top: .7rem;
+}
+
+.conclusion {
+  max-width: 980px;
+  margin: 0 auto 3rem;
+  padding: 5rem 6vw;
+  color: var(--white);
+  background: var(--green);
+}
+
+.conclusion p {
+  font-size: 1.1rem;
+}
+
+.final-line {
+  margin-top: 1.5rem;
+  font-style: italic;
 }
 
 .back-to-top {
@@ -378,6 +408,7 @@ blockquote {
   .intro-panel,
   .section-banner,
   .sources-panel,
+  .conclusion,
   .interactive-panel,
   .quote-panel {
     padding-top: 4rem;

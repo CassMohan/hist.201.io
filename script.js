@@ -93,10 +93,9 @@ document.addEventListener("keydown", (event) => {
 });
 
 const exhibitSteps = [
-  "Start with the object itself: what do you notice first?",
-  "Look for details that reveal time, place, labor, power, or identity.",
-  "Connect the object to a larger historical change or conflict.",
-  "End by explaining why this evidence still matters today."
+  "1837: The Panic of 1837 begins when cotton prices collapse. Planters default on loans, banks fail, and investors worldwide lose fortunes because speculation in slave-backed bonds was too big to fail.",
+  "2008: The subprime mortgage crisis echoes 1837. Risky securities bundled with bad loans collapse, triggering a global recession. The financial instruments had deep roots in plantation finance.",
+  "Conclusion: The myth that Wall Street's innovations were born only in the late twentieth century ignores their older origins in the slave-labor camps of the antebellum South."
 ];
 
 let currentStep = 0;

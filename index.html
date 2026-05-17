@@ -1,450 +1,43 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Myth of Northern Innocence | History Exhibit</title>
-  <style>
-    :root {
-      --bg: #f9f7f3;
-      --paper: #fffef9;
-      --text: #2c2825;
-      --text-light: #5a554e;
-      --accent: #8b2c2d;
-      --accent-dark: #661f20;
-      --border: #e6e0d5;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    /* Skip link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--accent);
-      color: white;
-      padding: 8px;
-      z-index: 100;
-      text-decoration: none;
-    }
-    .skip-link:focus { top: 0; }
-
-    /* Header */
-    .site-header {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--text);
-      font-size: 1.25rem;
-    }
-    .brand-mark {
-      background: var(--accent);
-      color: white;
-      width: 32px;
-      height: 32px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      font-weight: 700;
-    }
-    .top-nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .top-nav a {
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: 500;
-    }
-    .top-nav a:hover { color: var(--accent); }
-    .menu-button {
-      display: none;
-      background: none;
-      border: 1px solid var(--border);
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-family: inherit;
-      cursor: pointer;
-    }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      background: white;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-menu a {
-      text-decoration: none;
-      color: var(--text);
-      padding: 0.5rem 0;
-    }
-    @media (max-width: 768px) {
-      .top-nav { display: none; }
-      .menu-button { display: block; }
-      .mobile-menu.show { display: flex; }
-      .site-header { flex-wrap: wrap; }
-    }
-
-    /* Main container */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    /* Hero */
-    .chapter-hero {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    .hero-image {
-      width: 100%;
-      height: 300px;
-      background: #d4cfc8;
-      background-image: url('hero-map.jpg');
-      background-size: cover;
-      background-position: center;
-      border-radius: 20px;
-    }
-    .hero-content {
-      max-width: 800px;
-    }
-    .eyebrow {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .hero-content h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-    .hero-content p {
-      font-size: 1.125rem;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    /* Intro panel */
-    .intro-panel {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      margin-bottom: 3rem;
-      box-shadow: var(--shadow);
-    }
-    .intro-panel h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Section banner */
-    .section-banner {
-      background: #1e1a17;
-      color: white;
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    .section-banner h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .section-banner p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: #d4cfc8;
-    }
-
-    /* Exhibit rows */
-    .exhibit-row {
-      display: flex;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      align-items: center;
-    }
-    .exhibit-row.reverse {
-      flex-direction: row-reverse;
-    }
-    .text-block {
-      flex: 1;
-    }
-    .text-block h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .text-block p {
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-    .artifact-card {
-      flex: 1;
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .image-button {
-      width: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-    .image-button img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .artifact-card figcaption {
-      padding: 1rem;
-      font-size: 0.85rem;
-      color: var(--text-light);
-      border-top: 1px solid var(--border);
-    }
-    @media (max-width: 768px) {
-      .exhibit-row, .exhibit-row.reverse {
-        flex-direction: column;
-      }
-    }
-
-    /* Quote panel */
-    .quote-panel {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      margin: 2rem 0;
-      text-align: center;
-      border-left: 4px solid var(--accent);
-    }
-    .quote-panel blockquote {
-      font-size: 1.5rem;
-      font-style: italic;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Interactive panel */
-    .interactive-panel {
-      background: #1e1a17;
-      color: white;
-      padding: 2rem;
-      border-radius: 20px;
-      margin: 2rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .interactive-panel .controls {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .interactive-panel button {
-      background: var(--accent);
-      border: none;
-      padding: 0.5rem 1.25rem;
-      border-radius: 30px;
-      color: white;
-      font-family: inherit;
-      cursor: pointer;
-    }
-    .progress {
-      width: 200px;
-      height: 6px;
-      background: #3a3530;
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    #progress-bar {
-      display: block;
-      width: 0%;
-      height: 100%;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    /* Sources panel */
-    .sources-panel {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      margin: 3rem 0;
-    }
-    .sources-panel ul {
-      margin-top: 1rem;
-      list-style: none;
-    }
-    .sources-panel li {
-      margin-bottom: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-light);
-    }
-
-    /* Conclusion */
-    .conclusion {
-      background: linear-gradient(135deg, #2c2825 0%, #1e1a17 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 20px;
-      margin: 2rem 0;
-      text-align: center;
-    }
-    .conclusion h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-    .conclusion p {
-      max-width: 800px;
-      margin: 0 auto 1rem;
-      color: #d4cfc8;
-    }
-
-    /* Back to top button */
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--accent);
-      color: white;
-      border: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s;
-      box-shadow: var(--shadow);
-    }
-    .back-to-top.visible { opacity: 1; }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-    .modal.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    .modal-inner {
-      max-width: 90vw;
-      max-height: 90vh;
-      position: relative;
-    }
-    .modal-inner img {
-      max-width: 100%;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 12px;
-    }
-    .modal-close {
-      position: absolute;
-      top: -40px;
-      right: 0;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    #modal-title {
-      color: white;
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--text-light);
-      margin-top: 2rem;
-    }
-  </style>
+  <title>The Myth of Northern Innocence</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <a class="brand" href="#top">
+    <a class="brand" href="#top" aria-label="Digital exhibit home">
       <span class="brand-mark">H</span>
       <span>History Exhibit</span>
     </a>
     <nav class="top-nav" aria-label="Main navigation">
-      <a href="#intro">Intro</a>
+      <a href="#intro">Overview</a>
       <a href="#section-start">Exhibit</a>
+      <a href="#timeline">Timeline</a>
       <a href="#sources">Sources</a>
     </nav>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
-      Menu
-    </button>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
   </header>
 
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
-    <a href="#intro">Intro</a>
+    <a href="#intro">Overview</a>
     <a href="#section-start">Exhibit</a>
+    <a href="#timeline">Timeline</a>
     <a href="#sources">Sources</a>
   </nav>
 
   <main id="main">
     <section class="chapter-hero" id="top">
-      <div class="hero-image" role="img" aria-label="Cotton Kingdom map, 1860"></div>
+      <div class="hero-image" role="img" aria-label="Map of Southern cotton production in 1860"></div>
       <div class="hero-content">
-        <p class="eyebrow">Digital Museum Exhibit</p>
-        <h1>The Myth of Northern Innocence:<br>Slavery and the Making of American Capitalism</h1>
+        <p class="eyebrow">Digital Exhibit</p>
+        <h1>The Myth of Northern Innocence: Slavery and the Making of American Capitalism</h1>
         <p>
-          Most Americans grow up with a simple story: the North fought to free the slaves, while the South defended a backward, cruel system. Northern capitalism was about free labor, industry, and opportunity. Slavery was a Southern problem—a tragic exception to an otherwise progressive nation. This exhibit argues that story is a myth. Using original plantation records, financial documents, and recent historical scholarship, we show that Northern banks, textile mills, and investors were deeply complicit in the slave economy. The Civil War did not divide a "good" North from a "bad" South. Instead, both regions were part of a single, brutal capitalist system. Learning this history is not about guilt—it is about seeing clearly so we can build a more just future.
+          Most Americans grow up with a simple story: the North fought to free the slaves, while the South defended a backward, cruel system. Northern capitalism was about free labor, industry, and opportunity. Slavery was a Southern problem, a tragic exception to an otherwise progressive nation. This exhibit argues that story is a myth. Using original plantation records, financial documents, and recent historical scholarship, we show that Northern banks, textile mills, and investors were deeply complicit in the slave economy. The Civil War did not divide a "good" North from a "bad" South. Instead, both regions were part of a single, brutal capitalist system. Learning this history is not about guilt; it is about seeing clearly so we can build a more just future.
         </p>
       </div>
     </section>
@@ -460,181 +53,177 @@
     <section class="section-banner" id="section-start">
       <p class="eyebrow">Section I</p>
       <h2>The Plantation as America's First Big Business</h2>
-      <p>Before the Civil War, the cotton plantation was not a pre‑capitalist relic. It was a highly efficient, data‑driven corporation—using scientific management, depreciation, and spreadsheets decades before Northern factories.</p>
+      <p>
+        Before the Civil War, the cotton plantation was not a pre-capitalist relic. It was a highly efficient, data-driven corporation, using scientific management, depreciation, and spreadsheets decades before Northern factories.
+      </p>
     </section>
 
-    <!-- Exhibit Row 1: The Plantation as a Modern Corporation -->
-    <section class="exhibit-row reveal visible">
+    <section class="exhibit-row reveal">
       <div class="text-block">
-        <p class="eyebrow">Context</p>
+        <p class="eyebrow">Station 1</p>
         <h2>The Plantation as a Modern Corporation</h2>
         <p>
-          Historian Matthew Desmond argues that "when an accountant depreciates an asset to save on taxes or when a midlevel manager spends an afternoon filling in rows and columns on an Excel spreadsheet, they are repeating business procedures whose roots twist back to slave‑labor camps." Plantation owners like Thomas Affleck developed pre‑printed spreadsheets to track daily cotton yields, rations, and market values of enslaved people. This was not backward agriculture—it was cutting‑edge capitalism.
+          Historian Matthew Desmond argues that modern business practices have roots that "twist back to slave-labor camps." Plantation owners like Thomas Affleck developed pre-printed spreadsheets to track daily cotton yields, rations, and market values of enslaved people. This was not backward agriculture; it was cutting-edge capitalism.
         </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--accent);">Source: Desmond, Matthew. "In order to understand the brutality of American capitalism, you have to start on the plantation." <em>The New York Times Magazine</em>, 2019.</p>
+        <p class="source-note">Source: Matthew Desmond, The New York Times Magazine, 2019.</p>
       </div>
       <figure class="artifact-card">
-        <button class="image-button" type="button" data-modal-image="affleck-book.jpg" data-modal-title="Thomas Affleck's Plantation Record and Account Book (1851)">
-          <img src="affleck-book.jpg" alt="Thomas Affleck's Plantation Record and Account Book facsimile">
+        <button class="image-button" type="button" data-modal-image="images/hero-map.webp" data-modal-title="Thomas Affleck's Plantation Record and Account Book (1851)">
+          <img src="images/hero-map.webp" alt="Map of Southern cotton production">
         </button>
         <figcaption>
-          <strong>Thomas Affleck, "New edition of the plantation record and account book"</strong>
-          <span>New Orleans, 1851. Library of Congress.</span>
+          <strong>Thomas Affleck, "New edition of the plantation record and account book."</strong>
+          <span>New Orleans, 1851. Library of Congress. Replace this image with <code>images/affleck-book.jpg</code> if you download it.</span>
         </figcaption>
       </figure>
     </section>
 
-    <!-- Quote Panel -->
-    <section class="quote-panel reveal visible">
+    <section class="exhibit-row reverse reveal">
+      <figure class="artifact-card">
+        <button class="image-button" type="button" data-modal-image="images/auction-broadside.jpg" data-modal-title="Broadside for a Slave Auction, New Orleans, c. 1850s">
+          <img src="images/auction-broadside.jpg" alt="Engraving of an auction of enslaved people">
+        </button>
+        <figcaption>
+          <strong>Broadside advertising a public sale of enslaved people, c. 1850s.</strong>
+          <span>Smithsonian Institution or comparable public domain collection.</span>
+        </figcaption>
+      </figure>
+      <div class="text-block">
+        <p class="eyebrow">Station 2</p>
+        <h2>Torture as a Productivity Tool</h2>
+        <p>
+          Violence on the plantation was not random sadism. It was a rational, capitalistic tool to maximize output. Each enslaved worker had a daily cotton quota; falling short meant lashes. But picking too fast could also raise your quota. As fugitive slave John Brown recalled, "When the price rises in the English market, the poor slaves immediately feel the effects." Torture was directly tied to global market demand.
+        </p>
+        <p class="source-note">Source: Desmond, quoting John Brown.</p>
+      </div>
+    </section>
+
+    <section class="quote-panel reveal">
       <blockquote>
         "An unhallowed alliance between the lords of the lash and the lords of the loom."
       </blockquote>
       <p>Senator Charles Sumner of Massachusetts, 1850s</p>
     </section>
 
-    <!-- Exhibit Row 2: Torture as a Productivity Tool -->
-    <section class="exhibit-row reverse reveal visible">
-      <figure class="artifact-card">
-        <button class="image-button" type="button" data-modal-image="auction-broadside.jpg" data-modal-title="Broadside for a Slave Auction, New Orleans, c. 1850s">
-          <img src="auction-broadside.jpg" alt="Broadside advertising a slave auction">
-        </button>
-        <figcaption>
-          <strong>Broadside for the sale of enslaved persons</strong>
-          <span>c. 1850s. Smithsonian Institution (public domain).</span>
-        </figcaption>
-      </figure>
+    <section class="exhibit-row reveal">
       <div class="text-block">
-        <p class="eyebrow">Evidence</p>
-        <h2>Torture as a Productivity Tool</h2>
-        <p>
-          Violence on the plantation was not random sadism. It was a rational, capitalistic tool to maximize output. Each enslaved worker had a daily cotton quota; falling short meant lashes. But picking too fast could also raise your quota. As fugitive slave John Brown recalled, "When the price rises in the English market, the poor slaves immediately feel the effects, for they are harder driven, and the whip is kept more constantly going." Torture was directly tied to global market demand.
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--accent);">Source: Desmond, quoting John Brown (fugitive slave).</p>
-      </div>
-    </section>
-
-    <!-- Exhibit Row 3: Northern Finance -->
-    <section class="exhibit-row reveal visible">
-      <div class="text-block">
-        <p class="eyebrow">Context</p>
+        <p class="eyebrow">Station 3</p>
         <h2>Northern Finance: Mortgaging Human Beings</h2>
         <p>
-          Before the home mortgage became standard, enslaved people were used as collateral for loans. Northern and European investors eagerly bought bonds backed by slave mortgages. Thomas Jefferson mortgaged 150 of his enslaved workers to build Monticello. The Panic of 1837—America's first major financial crisis—was driven by speculation in slave‑backed securities, directly foreshadowing the 2008 crash.
+          Before the home mortgage became standard, enslaved people were used as collateral for loans. Northern and European investors eagerly bought bonds backed by slave mortgages. Thomas Jefferson mortgaged 150 of his enslaved workers to build Monticello. The Panic of 1837, America's first major financial crisis, was driven by speculation in slave-backed securities, directly foreshadowing the 2008 crash.
         </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--accent);">Source: Desmond, citing Bonnie Martin and Joshua Rothman.</p>
+        <p class="source-note">Source: Desmond, citing Bonnie Martin and Joshua Rothman.</p>
       </div>
       <figure class="artifact-card">
-        <button class="image-button" type="button" data-modal-image="slave-mortgage.jpg" data-modal-title="Mortgage Document Using Enslaved People as Collateral, 1839">
-          <img src="slave-mortgage.jpg" alt="Deed of mortgage using enslaved people as collateral">
+        <button class="image-button" type="button" data-modal-image="images/slave-mortgage.jpg" data-modal-title="Mortgage Document Using Enslaved People as Collateral, 1839">
+          <img src="images/slave-mortgage.jpg" alt="Mortgage document using enslaved people as collateral">
         </button>
         <figcaption>
-          <strong>Deed of mortgage using enslaved people as collateral</strong>
+          <strong>Deed of mortgage using enslaved people as collateral.</strong>
           <span>Recorded in New York, 1830. New-York Historical Society.</span>
         </figcaption>
       </figure>
     </section>
 
-    <!-- Interactive Panel -->
-    <section class="interactive-panel reveal visible" aria-labelledby="interactive-title">
+    <section class="interactive-panel reveal" id="timeline" aria-labelledby="interactive-title">
       <div>
-        <p class="eyebrow" style="color: #e8c4a0;">Interact to Explore</p>
-        <h2 id="interactive-title" style="color: white;">A Timeline of Financial Crises: 1837 and 2008</h2>
-        <p id="step-text" style="color: #d4cfc8;">1837: The Panic of 1837 begins when cotton prices collapse. Planters default on loans, banks fail, and investors worldwide lose fortunes—all because speculation in slave‑backed bonds was too big to fail.</p>
+        <p class="eyebrow">Click to Reveal</p>
+        <h2 id="interactive-title">A Timeline of Financial Crises: 1837 and 2008</h2>
+        <p id="step-text"></p>
       </div>
       <div class="controls">
         <button id="restart" type="button">Restart</button>
-        <div class="progress" aria-label="Interactive progress">
-          <span id="progress-bar" style="width: 33%;"></span>
+        <div class="progress" aria-label="Timeline progress">
+          <span id="progress-bar"></span>
         </div>
         <button id="next" type="button">Next</button>
       </div>
     </section>
 
-    <!-- Exhibit Row 4: Lords of the Lash -->
-    <section class="exhibit-row reverse reveal visible">
+    <section class="exhibit-row reveal">
+      <div class="text-block">
+        <p class="eyebrow">Station 4</p>
+        <h2>The Lords of the Lash and the Lords of the Loom</h2>
+        <p>
+          Massachusetts Senator Charles Sumner coined the phrase "lords of the lash and the lords of the loom" to expose the financial ties between Southern planters and Northern industrialists. Lowell, Massachusetts, the cradle of America's Industrial Revolution, ran on cotton picked by enslaved people. Northern mills did not merely buy cotton; they were partners in a brutal system.
+        </p>
+        <p class="source-note">Source: Sumner quoted in Desmond.</p>
+      </div>
       <figure class="artifact-card">
-        <button class="image-button" type="button" data-modal-image="lowell-mills.jpg" data-modal-title="Lowell Textile Mills, Massachusetts, c. 1850s">
-          <img src="lowell-mills.jpg" alt="Lowell textile mills engraving">
+        <button class="image-button" type="button" data-modal-image="images/lowell-mills.jpg" data-modal-title="Lowell Textile Mills, Massachusetts, c. 1850s">
+          <img src="images/lowell-mills.jpg" alt="Engraving of Lowell textile mills in Massachusetts">
         </button>
         <figcaption>
-          <strong>Lowell textile mills, Massachusetts</strong>
-          <span>c. 1850s. Center for Lowell History, UMass Lowell (public domain).</span>
+          <strong>Lowell textile mills, Massachusetts, c. 1850s.</strong>
+          <span>Center for Lowell History, UMass Lowell or comparable public domain source.</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="exhibit-row reverse reveal">
+      <figure class="artifact-card">
+        <button class="image-button" type="button" data-modal-image="images/slave-quarters.jpg" data-modal-title="Slave Quarters, Laurel Valley Sugar Plantation, Louisiana">
+          <img src="images/slave-quarters.jpg" alt="Historic slave quarters at Laurel Valley Sugar Plantation">
+        </button>
+        <figcaption>
+          <strong>Slave quarters, Laurel Valley Sugar Plantation.</strong>
+          <span>Near Thibodaux, Louisiana; original quarters built in the 1850s.</span>
         </figcaption>
       </figure>
       <div class="text-block">
-        <p class="eyebrow">Evidence</p>
-        <h2>"Lords of the Lash and the Lords of the Loom"</h2>
-        <p>
-          Massachusetts Senator Charles Sumner coined the phrase "lords of the lash and the lords of the loom" to expose the financial ties between Southern planters and Northern industrialists. Lowell, Massachusetts, the cradle of America's Industrial Revolution, ran on cotton picked by enslaved people. Northern mills did not merely buy cotton—they were partners in a brutal system.
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--accent);">Source: Sumner quoted in Desmond.</p>
-      </div>
-    </section>
-
-    <!-- Exhibit Row 5: The Enslaved Body as Commodity -->
-    <section class="exhibit-row reveal visible">
-      <div class="text-block">
-        <p class="eyebrow">Context</p>
+        <p class="eyebrow">Station 5</p>
         <h2>The Enslaved Body as Commodity</h2>
         <p>
-          Historian Walter Johnson, in <em>River of Dark Dreams</em>, shows that planters didn't just tell slaves what to do—they managed their bodies. Through a process called "seasoning," enslaved people were physically broken and retrained to fit cotton production. Sleep deprivation, torture, and constant surveillance transformed human beings into interchangeable units of production. As Johnson writes, "From the air, the face of the landscape would have presented a visual image of the whole of nature arrayed in the service of a single plant."
+          Historian Walter Johnson, in <em>River of Dark Dreams</em>, shows that planters did not just tell enslaved people what to do; they managed their bodies. Through "seasoning," enslaved people were physically broken and retrained to fit cotton production. Sleep deprivation, torture, and constant surveillance transformed human beings into interchangeable units of production.
         </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--accent);">Source: Johnson, Walter. <em>River of Dark Dreams: Slavery and Empire in the Cotton Kingdom</em>. Harvard University Press, 2013. (Reviewed by Winant)</p>
+        <p class="source-note">Source: Walter Johnson, <em>River of Dark Dreams</em>, 2013.</p>
       </div>
-      <figure class="artifact-card">
-        <button class="image-button" type="button" data-modal-image="slave-quarters.jpg" data-modal-title="Slave Quarters, Laurel Valley Sugar Plantation, Louisiana">
-          <img src="slave-quarters.jpg" alt="Slave quarters at Laurel Valley Sugar Plantation">
-        </button>
-        <figcaption>
-          <strong>Slave quarters, Laurel Valley Sugar Plantation</strong>
-          <span>Near Thibodaux, Louisiana (quarters built 1850s).</span>
-        </figcaption>
-      </figure>
     </section>
 
-    <!-- Exhibit Row 6: Why We Forgot -->
-    <section class="exhibit-row reverse reveal visible">
-      <figure class="artifact-card">
-        <button class="image-button" type="button" data-modal-image="sharecroppers.jpg" data-modal-title="Sharecroppers in the American South, 1870">
-          <img src="sharecroppers.jpg" alt="Black sharecroppers in the American South">
-        </button>
-        <figcaption>
-          <strong>Black sharecroppers in the American South</strong>
-          <span>Colored engraving, 1870 (public domain).</span>
-        </figcaption>
-      </figure>
+    <section class="exhibit-row reveal">
       <div class="text-block">
-        <p class="eyebrow">Conclusion</p>
+        <p class="eyebrow">Station 6</p>
         <h2>Why We Forgot</h2>
         <p>
-          After the Civil War and Reconstruction, a new national narrative emerged: the North had fought a noble war to free the slaves, while the South was a backward exception. This myth served to reunite white elites from both regions at the expense of Black Americans and workers. As Timothy Shenk writes, "The true privilege of victory is not, as is so often claimed, that winners may write their history. No, the greatest reward is being allowed to forget it." Remembering this history is dangerous—not because it makes us feel guilty, but because it forces us to see that the struggle for real freedom is still unfinished.
+          After the Civil War and Reconstruction, a new national narrative emerged: the North had fought a noble war to free the slaves, while the South was a backward exception. This myth served to reunite white elites from both regions at the expense of Black Americans and workers. As Timothy Shenk writes, "The true privilege of victory" is being allowed to forget. Remembering this history is dangerous because it forces us to see that the struggle for real freedom is still unfinished.
         </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--accent);">Source: Shenk, Timothy. "Apostles of Growth." <em>The Nation</em>, Nov. 24, 2014.</p>
+        <p class="source-note">Source: Timothy Shenk, "Apostles of Growth," The Nation, 2014.</p>
       </div>
+      <figure class="artifact-card">
+        <button class="image-button" type="button" data-modal-image="images/sharecroppers.jpg" data-modal-title="Sharecroppers in the American South, 1870">
+          <img src="images/sharecroppers.jpg" alt="Black sharecroppers in the American South">
+        </button>
+        <figcaption>
+          <strong>Black sharecroppers in the American South.</strong>
+          <span>Colored engraving, 1870. Public domain.</span>
+        </figcaption>
+      </figure>
     </section>
 
-    <!-- Conclusion Panel -->
-    <div class="conclusion">
-      <h2>🏛️ Exhibit Conclusion</h2>
-      <p>The North was not innocent. Northern banks, mills, and investors were full partners in the slave economy. The myth of "free labor" versus "slave labor" was a convenient lie that allowed the North to claim moral superiority while profiting from bondage.</p>
-      <p>Learning this history is not about blaming one region over another. It is about understanding that our present-day inequalities—wealth gaps, workplace exploitation, and financial instability—have roots in a system that treated human beings as property and called it capitalism.</p>
-      <p style="font-style: italic; margin-top: 1.5rem;">— Reconstruction matters because it is dangerous. So does this exhibit.</p>
-    </div>
+    <section class="conclusion reveal">
+      <h2>Exhibit Conclusion</h2>
+      <p>
+        The North was not innocent. Northern banks, mills, and investors were full partners in the slave economy. The myth of "free labor" versus "slave labor" was a convenient lie that allowed the North to claim moral superiority while profiting from bondage.
+      </p>
+      <p>
+        Learning this history is not about blaming one region over another. It is about understanding that our present-day inequalities, wealth gaps, workplace exploitation, and financial instability have roots in a system that treated human beings as property and called it capitalism.
+      </p>
+      <p class="final-line">Reconstruction matters because it is dangerous. So does this exhibit.</p>
+    </section>
 
-    <!-- Sources Panel -->
     <section class="sources-panel" id="sources">
       <p class="eyebrow">Bibliography</p>
       <h2>Sources</h2>
       <ul>
         <li>Desmond, Matthew. "In order to understand the brutality of American capitalism, you have to start on the plantation." <em>The New York Times Magazine</em>, 2019.</li>
-        <li>Winant, Gabriel. "Slave Capitalism." <em>n+1</em>, Issue 17, 2013. (Review of Walter Johnson's <em>River of Dark Dreams</em>)</li>
+        <li>Winant, Gabriel. "Slave Capitalism." <em>n+1</em>, Issue 17, 2013.</li>
         <li>Shenk, Timothy. "Apostles of Growth." <em>The Nation</em>, Nov. 24, 2014.</li>
         <li>Johnson, Walter. <em>River of Dark Dreams: Slavery and Empire in the Cotton Kingdom</em>. Harvard University Press, 2013.</li>
         <li>Gourevitch, Alex. "Our Forgotten Labor Revolution." <em>Dissent</em>, Spring 2019.</li>
         <li>Affleck, Thomas. "New edition of the plantation record and account book." New Orleans, 1851. Library of Congress.</li>
         <li>"Deed of Mortgage between William Warren and Sarah Elder." 1830. New-York Historical Society.</li>
-        <li>"Broadside for the sale of enslaved persons and other property of William Bland." Smithsonian Institution (public domain).</li>
-        <li>Lowell textile mills stereograph. Center for Lowell History, UMass Lowell (public domain).</li>
+        <li>"Broadside for the sale of enslaved persons and other property of William Bland." Smithsonian Institution.</li>
+        <li>Lowell textile mills stereograph. Center for Lowell History, UMass Lowell.</li>
       </ul>
     </section>
   </main>
@@ -649,94 +238,6 @@
     </div>
   </div>
 
-  <footer>
-    <p>© 2025 Thiri Hnin Thant | Digital Museum Exhibit for History Class</p>
-    <p>All images used are in the public domain or openly licensed for educational purposes.</p>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const menuBtn = document.querySelector('.menu-button');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        const expanded = menuBtn.getAttribute('aria-expanded') === 'true' ? false : true;
-        menuBtn.setAttribute('aria-expanded', expanded);
-        mobileMenu.classList.toggle('show');
-      });
-    }
-
-    // Interactive panel (timeline)
-    const stepText = document.getElementById('step-text');
-    const progressBar = document.getElementById('progress-bar');
-    const nextBtn = document.getElementById('next');
-    const restartBtn = document.getElementById('restart');
-    let step = 1;
-
-    const steps = [
-      "1837: The Panic of 1837 begins when cotton prices collapse. Planters default on loans, banks fail, and investors worldwide lose fortunes—all because speculation in slave‑backed bonds was too big to fail.",
-      "2008: The subprime mortgage crisis echoes 1837. Risky securities bundled with bad loans collapse, triggering a global recession. The financial instruments—collateralized debt obligations—had been pioneered on slave plantations.",
-      "Conclusion: The myth that Wall Street's innovations were born in the 1980s ignores their true origin: the slave‑labor camps of the antebellum South."
-    ];
-
-    function updateInteractive() {
-      stepText.textContent = steps[step - 1];
-      progressBar.style.width = (step / steps.length) * 100 + '%';
-    }
-
-    if (nextBtn && restartBtn) {
-      nextBtn.addEventListener('click', () => {
-        if (step < steps.length) {
-          step++;
-        } else {
-          step = 1;
-        }
-        updateInteractive();
-      });
-      restartBtn.addEventListener('click', () => {
-        step = 1;
-        updateInteractive();
-      });
-    }
-
-    // Back to top button
-    const backBtn = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backBtn.classList.add('visible');
-      } else {
-        backBtn.classList.remove('visible');
-      }
-    });
-    backBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Image modal
-    const modal = document.getElementById('image-modal');
-    const modalImg = document.getElementById('modal-image');
-    const modalTitle = document.getElementById('modal-title');
-    const modalClose = document.querySelector('.modal-close');
-
-    document.querySelectorAll('.image-button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const imgSrc = btn.getAttribute('data-modal-image');
-        const imgTitle = btn.getAttribute('data-modal-title');
-        if (imgSrc && modalImg) {
-          modalImg.src = imgSrc;
-          modalTitle.textContent = imgTitle || '';
-          modal.classList.add('show');
-        }
-      });
-    });
-
-    function closeModal() {
-      modal.classList.remove('show');
-    }
-    if (modalClose) modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
