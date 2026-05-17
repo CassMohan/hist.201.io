@@ -73,6 +73,21 @@ figcaption {
   margin: 5rem 0;
   background: #fffaf1;
 }
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+nav a.active {
+  color: #8b5e34;
+  font-weight: bold;
+}
 
 blockquote {
   font-size: 1.6rem;
