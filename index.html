@@ -1,72 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your History Exhibit Title</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History Class Digital Exhibit</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-text">
-      <p class="chapter">History Exhibit</p>
-      <h1>Your Exhibit Title</h1>
-      <p>A short one-sentence description of what your exhibit explores.</p>
-    </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Digital exhibit home">
+      <span class="brand-mark">H</span>
+      <span>History Exhibit</span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#intro">Intro</a>
+      <a href="#section-start">Exhibit</a>
+      <a href="#artifacts">Artifacts</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      Menu
+    </button>
   </header>
 
-  <main>
-    <section class="intro">
-      <h2>Introduction</h2>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="#intro">Intro</a>
+    <a href="#section-start">Exhibit</a>
+    <a href="#artifacts">Artifacts</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <main id="main">
+    <section class="chapter-hero" id="top">
+      <div class="hero-image" role="img" aria-label="Historic exhibit image placeholder"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Chapter 1</p>
+        <h1>Your Exhibit Title</h1>
+        <p>
+          Replace this paragraph with a short introduction to your topic. Explain the
+          historical issue, the time period, and the main idea visitors should notice.
+        </p>
+      </div>
+    </section>
+
+    <section class="intro-panel" id="intro">
+      <p class="eyebrow">Overview</p>
+      <h2>What This Exhibit Explores</h2>
       <p>
-        Write 1-2 paragraphs introducing your topic, historical question,
-        and why it matters.
+        This digital exhibit examines how one historical event, object, person, or
+        movement shaped a larger story. Use this opening section to give your visitor
+        enough background before they move into the artifact sections.
       </p>
     </section>
 
-    <section class="exhibit-section">
-      <div>
-        <h2>Section One Title</h2>
+    <section class="section-banner" id="section-start">
+      <p class="eyebrow">Section I</p>
+      <h2>Innovation &amp; Industry</h2>
+      <p>
+        Use a section opener like this to divide your exhibit into chapters. The
+        sample page uses strong chapter breaks to make the story feel like a museum tour.
+      </p>
+    </section>
+
+    <section class="exhibit-row reveal">
+      <div class="text-block">
+        <p class="eyebrow">Context</p>
+        <h2>The Historical Background</h2>
         <p>
-          Explain the first major part of your exhibit. Keep paragraphs short,
-          like museum labels.
+          Write a short museum-style label here. Focus on interpretation, not just
+          facts. Explain what changed, who was affected, and why the evidence matters.
         </p>
       </div>
-      <figure>
-        <img src="images/artifact-1.jpg" alt="Describe this image" />
-        <figcaption>Artifact title, date. Source/credit.</figcaption>
+      <figure class="artifact-card">
+        <button class="image-button" type="button" data-modal-image="images/artifact-1.jpg" data-modal-title="Artifact One">
+          <img src="images/artifact-1.jpg" alt="Describe artifact one here">
+        </button>
+        <figcaption>
+          <strong>Artifact One Title</strong>
+          <span>Date or creator. Museum, archive, or source credit.</span>
+        </figcaption>
       </figure>
     </section>
 
-    <section class="quote">
+    <section class="quote-panel reveal">
       <blockquote>
-        “Add a short primary source quote here.”
+        "Place a short primary source quote here."
       </blockquote>
-      <p>Source name, date</p>
+      <p>Speaker or document title, year</p>
     </section>
 
-    <section class="exhibit-section reverse">
-      <figure>
-        <img src="images/artifact-2.jpg" alt="Describe this image" />
-        <figcaption>Artifact title, date. Source/credit.</figcaption>
+    <section class="exhibit-row reverse reveal" id="artifacts">
+      <figure class="artifact-card">
+        <button class="image-button" type="button" data-modal-image="images/artifact-2.jpg" data-modal-title="Artifact Two">
+          <img src="images/artifact-2.jpg" alt="Describe artifact two here">
+        </button>
+        <figcaption>
+          <strong>Artifact Two Title</strong>
+          <span>Date or creator. Museum, archive, or source credit.</span>
+        </figcaption>
       </figure>
-      <div>
-        <h2>Section Two Title</h2>
+      <div class="text-block">
+        <p class="eyebrow">Evidence</p>
+        <h2>Reading the Artifact</h2>
         <p>
-          Add another part of your historical argument here.
+          Describe what visitors can see in the object or image. Then connect those
+          details to your larger argument about the historical period.
         </p>
       </div>
     </section>
 
-    <section class="sources">
+    <section class="interactive-panel reveal" aria-labelledby="interactive-title">
+      <div>
+        <p class="eyebrow">Interact to Explore</p>
+        <h2 id="interactive-title">A Guided Exhibit Moment</h2>
+        <p id="step-text">
+          Click Next to move through short exhibit notes, like a simplified version of
+          an interactive museum feature.
+        </p>
+      </div>
+      <div class="controls">
+        <button id="restart" type="button">Restart</button>
+        <div class="progress" aria-label="Interactive progress">
+          <span id="progress-bar"></span>
+        </div>
+        <button id="next" type="button">Next</button>
+      </div>
+    </section>
+
+    <section class="sources-panel" id="sources">
+      <p class="eyebrow">Bibliography</p>
       <h2>Sources</h2>
       <ul>
-        <li>Source 1</li>
-        <li>Source 2</li>
-        <li>Source 3</li>
+        <li>Author last name, first name. "Source Title." Website or archive, year.</li>
+        <li>Museum or archive name. "Artifact Title." Collection name, year.</li>
+        <li>Book, article, or database source used for your research.</li>
       </ul>
     </section>
   </main>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">Top</button>
+
+  <div class="modal" id="image-modal" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" aria-label="Close image preview">Close</button>
+      <img id="modal-image" src="" alt="">
+      <p id="modal-title"></p>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
